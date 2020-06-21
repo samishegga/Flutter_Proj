@@ -6,16 +6,33 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
+  //Implementation of asynchronous
+  getData() async {
+    //Simulate Network requesting from API or DataBase
+    await Future.delayed(
+      Duration(seconds: 3),
+      () {
+        print('Sami Shegga');
+      },
+    );
+    //Simulate Network request (depends on the first)
+    await Future.delayed(
+      Duration(seconds: 2),
+      () {
+        print('This is printed state depends on Sami Shegga');
+      },
+    );
+    print('This is non-blocking');
+  }
+
   @override
   void initState() {
     super.initState();
-    print('This is Initial State');
+    getData();
   }
 
-  int counter = 0;
   @override
   Widget build(BuildContext context) {
-    print('This is Build State');
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
@@ -23,14 +40,6 @@ class _ChooseLocationState extends State<ChooseLocation> {
         backgroundColor: Colors.blue[900],
         centerTitle: true,
         elevation: 0.0,
-      ),
-      body: FlatButton(
-        onPressed: () {
-          setState(() {
-            counter++;
-          });
-        },
-        child: Text('$counter'),
       ),
     );
   }
