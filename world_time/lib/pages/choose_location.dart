@@ -9,20 +9,20 @@ class _ChooseLocationState extends State<ChooseLocation> {
   //Implementation of asynchronous
   getData() async {
     //Simulate Network requesting from API or DataBase
-    await Future.delayed(
+    String username = await Future.delayed(
       Duration(seconds: 3),
       () {
-        print('Sami Shegga');
+        return 'TheSamiShegga';
       },
     );
     //Simulate Network request (depends on the first)
-    await Future.delayed(
+    String password = await Future.delayed(
       Duration(seconds: 2),
       () {
-        print('This is printed state depends on Sami Shegga');
+        return 'ThePasswordispassword';
       },
     );
-    print('This is non-blocking');
+    print('$username  $password');
   }
 
   @override
