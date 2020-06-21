@@ -19,14 +19,6 @@ class _HomeState extends State<Home> {
               icon: Icon(Icons.edit_location),
               label: Text('Location'),
             ),
-            SizedBox(height: 20.0),
-            FlatButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/');
-              },
-              icon: Icon(Icons.sentiment_dissatisfied),
-              label: Text('Location'),
-            ),
           ],
         ),
       ),
