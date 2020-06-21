@@ -19,7 +19,6 @@ class _MyAppState extends State<MyApp> {
     Quotes('Change the world by being yourself', 'Kadija Sheggar'),
     Quotes('Every moment is a fresh beginning', 'Bakare Ali'),
     Quotes('Die with memories, not dreams', 'Usman Jilo'),
-    Quotes('Aspire to inspire before we expire', 'Waday Mummad')
   ];
 
   @override
@@ -38,7 +37,15 @@ class _MyAppState extends State<MyApp> {
         padding: const EdgeInsets.all(18.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: quoteList.map((e) => QuoteCard(e)).toList(),
+          children: quoteList
+              .map((e) => QuoteCard(
+                  e: e,
+                  delete: () {
+                    setState(() {
+                      quoteList.remove(e);
+                    });
+                  }))
+              .toList(),
         ),
       ),
     );
