@@ -38,13 +38,18 @@ class _MyAppState extends State<MyApp> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: quoteList
-              .map((e) => QuoteCard(
+              .map(
+                (e) => QuoteCard(
                   e: e,
-                  delete: () {
-                    setState(() {
-                      quoteList.remove(e);
-                    });
-                  }))
+                  deleteQuote: () {
+                    setState(
+                      () {
+                        quoteList.remove(e);
+                      },
+                    );
+                  },
+                ),
+              )
               .toList(),
         ),
       ),
